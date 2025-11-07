@@ -1,0 +1,14 @@
+./counterstest 
+Test 1: create counters
+Test 2: counters_add with existing key, and new key
+Number of items in counters: 1. Expected: 1
+Test 3: counters_add with null counters or negative key.
+Test 4: counters_get with valid key first, invalid key second.
+Result: 2. Expected 2.
+Test 5: counters_set with invalid key, null ctrs, invalid count, and valid params
+See result in Test 6. Expected count 10 at key 5
+Test 6: counters_print
+{5=10,4=1,3=1,1=2,}
+Test 7: counters_iterate with null ctrs, itemfunc, and then a third, valid test
+Expected: 4. Result: 4. 
+Test 8: counters_delete
