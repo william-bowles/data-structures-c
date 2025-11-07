@@ -1,0 +1,26 @@
+gcc -Wall -pedantic -std=c11 -ggdb  -I../lib -I../set   -c -o hashtest.o hashtest.c
+gcc -Wall -pedantic -std=c11 -ggdb  -I../lib -I../set   -c -o hashtable.o hashtable.c
+gcc -Wall -pedantic -std=c11 -ggdb  -I../lib -I../set   -c -o ../set/set.o ../set/set.c
+gcc -Wall -pedantic -std=c11 -ggdb  -I../lib -I../set hashtest.o hashtable.o ../lib/file.o hash.o ../lib/mem.o ../set/set.o  -o hashtest
+./hashtest
+Test 1: Create a hashtable.
+Test 2: hashtable_insert with invalid ht, key, and item
+Test 3: hashtable_iterate following Test 2. We expect the result to be 0.
+Result: 0
+Test 4: hashtable_insert three times.
+Test 5: hashtable_print on the resulting hash table. Will also give us further info for Test 4.
+{(null)
+(null)
+{Key3=Joe,Key2=Steven,Key1=Bob,}
+Test 6: hashtable_print with invalid ht, file, and itemprint.
+(null)
+{(null)
+(null)
+{}
+Test 7: hashtable_insert with an existing key.
+For Test 7, we put existing key 1 and tried to overwrite Bob with Bart. Expected: Bob. Result: Bob
+Test 8: hashtable_find with valid parameters.
+Expected: Bob. Result: Bob
+Test 9: hashtable_find with invalid parameters.
+If nothing printed below Test 9 before this message, the test passed.
+Test 10: hashtable_delete.
