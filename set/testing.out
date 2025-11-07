@@ -1,0 +1,17 @@
+gcc -Wall -pedantic -std=c11 -ggdb  -I../lib   -c -o set.o set.c
+gcc -Wall -pedantic -std=c11 -ggdb  -I../lib settest.o set.o ../lib/file.o ../lib/mem.o  -o settest
+./settest
+Test 1: set_new.
+Test 2: set_insert null handling. First, null set. Second, null key. Third, null item
+To test if insert worked, Test 3: Test set_iterate following test 2. We expect the result to be 0. 
+0
+Test 4: set_insert with proper cases.
+Count should be 4: 
+Actual: 4
+Test 5: Printing the entire set: 
+{Key4=Frog,Key3=William,Key2=Dartmouth,Key1=CS50,}
+Test 6: set_find.
+Expected CS50. Result: CS50
+Test 7: Ensure set size remained the same following set_find
+Expected size: 1. Actual: 1
+Test 8: Delete the sets.
